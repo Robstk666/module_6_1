@@ -5,6 +5,17 @@ class Animal:
         self.alive = True
         self.fed = False
 
+    def eat(self, food):
+        if isinstance(food, Plant):
+            if food.edible:
+                print(f"{self.name} съел {food.name}")
+                self.fed = True
+            else:
+                print(f"{self.name} не стал есть {food.name}")
+                self.alive = False
+        else:
+            print(f"{self.name} не может есть это.")
+
 # Родительский класс Plant
 class Plant:
     def __init__(self, name):
@@ -13,35 +24,15 @@ class Plant:
 
 # Класс-наследник Mammal
 class Mammal(Animal):
-    def eat(self, food):
-        if isinstance(food, Plant):
-            if food.edible:
-                print(f"{self.name} съел {food.name}")
-                self.fed = True
-            else:
-                print(f"{self.name} не стал есть {food.name}")
-                self.alive = False
-        else:
-            print(f"{self.name} не может есть это.")
+    pass
 
 # Класс-наследник Predator
 class Predator(Animal):
-    def eat(self, food):
-        if isinstance(food, Plant):
-            if food.edible:
-                print(f"{self.name} съел {food.name}")
-                self.fed = True
-            else:
-                print(f"{self.name} не стал есть {food.name}")
-                self.alive = False
-        else:
-            print(f"{self.name} не может есть это.")
+    pass
 
 # Класс-наследник Flower
 class Flower(Plant):
-    def __init__(self, name):
-        super().__init__(name)
-        self.edible = False
+    pass
 
 # Класс-наследник Fruit
 class Fruit(Plant):
